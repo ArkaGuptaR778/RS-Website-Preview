@@ -13,7 +13,7 @@ This repository holds a **preview of a proposed new website for RS Software**, p
 
 > **Note:** This is a concept for review only. It is **not** the official RS Software website, and nothing here is live on the company's own web address.
 
-**👉 View the preview:** `[https://<your-github-username>.github.io/<repository-name>/](https://arkaguptar778.github.io/RS-Website-Preview/)`
+**👉 View the preview:** `[https://arkaguptar778.github.io/RS-Website-Preview/]`
 
 ---
 
