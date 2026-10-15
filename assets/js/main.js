@@ -173,7 +173,7 @@
     function make(d, x) {
       var el = doc.createElement('div'); el.className = 'mt__item'; el.style.setProperty('--pc', d.c);
       el.innerHTML = '<div class="mt__face mt__in"><span class="k">' + esc(d.k) + '</span><span class="t">' + esc(d.t) + '</span><span class="m">' + esc(d.m) + '</span><span class="ln"></span><span class="ln"></span><span class="ln"></span><span class="stamp"><i></i><i></i></span></div>' +
-        '<div class="mt__face mt__out"><img src="' + BASE + 'assets/img/logo-' + d.p + '.webp" alt=""><span class="rk">' + esc(d.rk) + '</span><span class="rv">' + esc(d.rv) + '</span><ul><li>' + esc(d.rl[0]) + '</li><li>' + esc(d.rl[1]) + '</li></ul></div>';
+        '<div class="mt__face mt__out"><img src="' + BASE + 'assets/img/logo-' + d.p + '.webp" alt=""><span class="rk">' + esc(d.rk) + '</span><span class="rv">' + esc(d.rv) + '</span><ul>' + d.rl.slice(0, 2).map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul></div>';
       stage.appendChild(el);
       var it = { el: el, x: x, d: d, inF: el.firstChild, outF: el.lastChild, emitT: 0 };
       place(it, dims()); return it;
@@ -387,7 +387,7 @@
       var kb = +r.headers.get('content-length'); if (kb) status.textContent = 'Whitepaper · PDF · ' + (kb > 1048576 ? (kb / 1048576).toFixed(1) + ' MB' : Math.round(kb / 1024) + ' KB');
     }).catch(function () {
       status.textContent = 'PDF available soon';
-      link.removeAttribute('download'); link.href = BASE + 'contact.html?topic=general'; link.textContent = 'Ask our team';
+      link.removeAttribute('download'); link.href = BASE + 'contact/?topic=general'; link.textContent = 'Ask our team';
       link.className = 'btn btn-outline';
     });
   });
@@ -560,7 +560,7 @@
       e.preventDefault();
       var v = f.querySelector('input').value.trim();
       if (v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { f.querySelector('input').setCustomValidity('Enter a valid email address'); f.reportValidity(); return; }
-      location.href = BASE + 'contact.html' + (v ? '?email=' + encodeURIComponent(v) + '&topic=sales' : '') + '#message';
+      location.href = BASE + 'contact/' + (v ? '?email=' + encodeURIComponent(v) + '&topic=sales' : '') + '#message';
     });
     f.querySelector('input').addEventListener('input', function () { this.setCustomValidity(''); });
   });

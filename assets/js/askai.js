@@ -86,8 +86,8 @@ window.__rsGM=GM;})();
   var CFG=(window.RS_CONFIG||{}).askAI||{enabled:true};
   if(CFG.enabled===false) return;
   var BASE=document.body.getAttribute('data-base')||'';
-  var ROUTES={billedge:'products/bill-edge.html',payabbhi:'products/payabbhi.html',digitaledge:'products/digitaledge.html',intelliedge:'products/intelliedge.html',
-    contact:'contact.html',insights:'insights.html',careers:'careers.html',about:'about.html','request-demo':'request-demo.html','access-sandbox':'sandbox.html'};
+  var ROUTES={billedge:'products/bill-edge/',payabbhi:'products/payabbhi/',digitaledge:'products/digitaledge/',intelliedge:'products/intelliedge/',
+    contact:'contact/',insights:'insights/',careers:'careers/',about:'about/','request-demo':'request-demo/','access-sandbox':'sandbox/'};
   var STARTERS=[{i:'🏦',l:'Digital banking transformation',q:"We want to modernise our bank's digital channels"},
     {i:'🛡️',l:'Fraud & risk AI',q:'I need a real-time fraud detection solution'},
     {i:'🧾',l:'Bill payment & BBPS',q:'Tell me about Bill@Edge and BBPS onboarding'},
@@ -114,7 +114,7 @@ window.__rsGM=GM;})();
     '<div class="ai__log" aria-live="polite"><div class="ai__welcome"><h3>How can I help?</h3><p>Ask about our products, who we work with, or the problem you’re solving.</p><div class="ai__starters">'+
     STARTERS.map(function(s){return '<button type="button" data-q="'+esc(s.q)+'"><span>'+s.i+'</span>'+s.l+'</button>';}).join('')+'</div></div></div>'+
     '<form class="ai__form"><label class="sr-only" for="rs-ai-input">Your question</label><input id="rs-ai-input" autocomplete="off" placeholder="Ask about products, fraud, BBPS…"><button type="submit" aria-label="Send">'+I.send+'</button></form>'+
-    '<p class="ai__note">Automated guide. For specifics, <a href="'+BASE+'contact.html">talk to our team</a>.</p>';
+    '<p class="ai__note">Automated guide. For specifics, <a href="'+BASE+'contact/">talk to our team</a>.</p>';
   document.body.appendChild(fab);document.body.appendChild(box);
   var log=box.querySelector('.ai__log'),input=box.querySelector('input'),busy=false;
   function open(){box.classList.add('is-open');fab.setAttribute('aria-expanded','true');setTimeout(function(){input.focus();},150);}
@@ -189,7 +189,7 @@ window.__rsGM=GM;})();
       if(r.chips&&r.chips.length) h+='<div class="msg__chips">'+r.chips.map(function(c){return '<button type="button" data-q="'+esc(c)+'">'+esc(c)+'</button>';}).join('')+'</div>';
       t.innerHTML=h+'</div>';
     }).catch(function(){
-      t.innerHTML='<div class="bubble"><p>Sorry — something went wrong. Please try again, or <a href="'+BASE+'contact.html">talk to our team</a>.</p></div>';
+      t.innerHTML='<div class="bubble"><p>Sorry — something went wrong. Please try again, or <a href="'+BASE+'contact/">talk to our team</a>.</p></div>';
     }).then(function(){ log.scrollTop=log.scrollHeight; busy=false; });
   }
   box.addEventListener('click',function(e){var b=e.target.closest('[data-q]');if(b) ask(b.getAttribute('data-q'));});
