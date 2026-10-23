@@ -37,7 +37,7 @@
   }
   function size() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = el.clientWidth; H = el.clientHeight || W;
+    W = el.clientWidth; H = W; // the globe is always square; reading clientHeight kept the old height after a resize (tall gap on phone)
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     cv.style.width = W + 'px'; cv.style.height = H + 'px';
     R = Math.min(W, H) * (W < 640 ? 0.44 : 0.355);
